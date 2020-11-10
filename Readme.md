@@ -1,4 +1,7 @@
 # How to configure a BootstrapChart
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/311774688/)**
+<!-- run online end -->
 
 This example illustrates how to use the updated API members in order to set up BootstrapChart argument and values axes for different data types declaratively and programmatically.
 
