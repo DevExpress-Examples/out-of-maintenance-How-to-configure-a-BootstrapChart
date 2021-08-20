@@ -2,20 +2,25 @@
 using System.Linq;
 
 namespace ChartApi {
+    public class NumericDataPoint {
+        public int X { get; set; }
+        public int? Y1 { get; set; }
+        public int? Y2 { get; set; }
+    }
     public class DataProvider {
         static readonly DateTime startDate = new DateTime(2020, 10, 01);
         public static object GetDataForArgNumeric() {
-            var dataNumeric = Enumerable.Range(1, 9).Select(i => new {
+            var dataNumeric = Enumerable.Range(1, 9).Select(i => new NumericDataPoint {
                 X = i,
                 Y1 = i * 5,
                 Y2 = i * 5 + 1
             }).ToList();
 
             //emulate empty point for certain series
-            dataNumeric.Add(new { X = 10, Y1 = 50, Y2 = 0 });
-            dataNumeric.Add(new { X = 11, Y1 = 0,  Y2 = 56 });
+            dataNumeric.Add(new NumericDataPoint { X = 10, Y1 = 50, Y2 = null });
+            dataNumeric.Add(new NumericDataPoint { X = 11, Y1 = null,  Y2 = 56 });
 
-            dataNumeric.Add(new { X = 12, Y1 = 60, Y2 = 61 });
+            dataNumeric.Add(new NumericDataPoint { X = 12, Y1 = 60, Y2 = 61 });
             return dataNumeric;
         }
         public static object GetDataForArgDate() {
